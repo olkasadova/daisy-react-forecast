@@ -7,7 +7,7 @@ import FormattedDate from './FormattedDate';
 
 
 export default function Weather(props) {
-
+        
         return(
         <div className="weather"> 
             <div className="row">
@@ -19,7 +19,7 @@ export default function Weather(props) {
                     <span className="farenheit">°F</span>
                     
                     <ul className = "weather-data">
-                        <li>Pressure: <span className="pressure">{props.data. pressure}</span> p</li>
+                        <li>Pressure: <span className="pressure">{props.data.pressure}</span> p</li>
                         <li>Humidity: <span className="humidity">{props.data.humidity}</span>%</li>
                         <li>Wind: <span className="wind">{(Math.round(props.data.wind))} </span> mph </li>
                     </ul>
@@ -27,8 +27,10 @@ export default function Weather(props) {
             <div className="col-6">
                 <ul className = "weather-add-data">
                 <li><strong>Weather</strong></li>
-                
+                     
                 <li className="text-capitalize"> <span className="description">{props.data.description}</span></li> 
+                <FormattedDate info={props.data.date}/>
+       
                 </ul>
             </div>          
             </div>

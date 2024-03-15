@@ -37,10 +37,6 @@ export default function Header (props){
         }
         setWeatherData(weatherData);       
         setLoaded(true);
-       
-        console.log(city);
-        console.log (loaded);
-        console.log (weatherData);
     }
         
 
