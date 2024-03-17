@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "./Weather.css";
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from "axios";
@@ -7,13 +7,17 @@ import FormattedDate from './FormattedDate';
 
 
 export default function Weather(props) {
-        
+        let formatted_icon="";
+        formatted_icon=props.iconWeather;
+       // formatted_icon=props.icon;
+     
+        console.log (formatted_icon);
         return(
         <div className="weather"> 
             <div className="row">
                 <div className="col-6">
                     <h2 className = "display-city">{props.data.name}</h2>
-                    <img className="weather-image" src={require('./image/free-icon-blue-cloud-and-weather-16527.png')} alt="cloudy"></img>
+                    <img className="weather-image" src={require("./image/"+formatted_icon)} alt="cloudy"></img>
                     <span className="temp-value">{(Math.round(props.data.temperature))}</span>
                     <span className="celsius">°C/ </span>
                     <span className="farenheit">°F</span>

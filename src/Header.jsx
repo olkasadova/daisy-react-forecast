@@ -9,6 +9,7 @@ export default function Header (props){
     let [city, setCity] = useState ("Edniburgh");
     let [weatherData, setWeatherData] = useState({loaded:false});
     let [loaded, setLoaded] = useState(false);
+    let [icon, setIcon]=useState ("./image/sun-outline.png");
     
     function search (){
         const APIkey="b16f3163779c7ceaabe5d3c63b9d9c72";
@@ -33,14 +34,38 @@ export default function Header (props){
             wind: response.data.wind.speed,
             name: response.data.name,
             description: response.data.weather[0].description,
+            main:response.data.weather[0].main,
             pressure: response.data.main.pressure,
         }
         setWeatherData(weatherData);       
         setLoaded(true);
+        findIcon(icon);
+        console.log(icon);
+        }
+    function findIcon (icon){
+        console.log(weatherData.main);
+        switch (weatherData.main) {
+            case  "Clouds":
+                icon="free-icon-blue-cloud-and-weather-16527.png";
+                break;
+            case  "Rain":
+                icon="free-downpour-rainy-day-icon-16531.png";
+                break;
+            case  "Clear":
+                icon="free-blue-clouds-and-blue-moon-icon-16538.png";
+                break;
+            case  "Sun":
+                icon="free-icon-yellow-sun.png";
+                break;
+        }
+        
+        setIcon(icon);
+        console.log (icon);
+        return (icon);
     }
         
 
-   /* let validate = (city)=>{
+    let validate = (city)=>{
         let error = "";
         let message = document.getElementById("validation-text");
         message.innerHTML = "";
@@ -52,7 +77,7 @@ export default function Header (props){
             if (city == ""){
                 error = "Please enter a city...nothing to search";}
          message.innerHTML  = error;
-    }*/
+    }
     if (loaded){
     return(
         <div>
@@ -82,7 +107,7 @@ export default function Header (props){
             </div>
       </header>
       
-      <Weather data={weatherData}/>
+      <Weather data={weatherData} iconWeather={icon}/>
       
       </div>
     )
