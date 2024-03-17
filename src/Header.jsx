@@ -9,7 +9,7 @@ export default function Header (props){
     let [city, setCity] = useState ("Edniburgh");
     let [weatherData, setWeatherData] = useState({loaded:false});
     let [loaded, setLoaded] = useState(false);
-    let [icon, setIcon]=useState ("./image/sun-outline.png");
+    let [icon, setIcon]=useState ("sun-outline.png");
     
     function search (){
         const APIkey="b16f3163779c7ceaabe5d3c63b9d9c72";
@@ -42,8 +42,10 @@ export default function Header (props){
         findIcon(icon);
         console.log(icon);
         }
+
+       
     function findIcon (icon){
-        console.log(weatherData.main);
+        
         switch (weatherData.main) {
             case  "Clouds":
                 icon="free-icon-blue-cloud-and-weather-16527.png";
@@ -60,7 +62,6 @@ export default function Header (props){
         }
         
         setIcon(icon);
-        console.log (icon);
         return (icon);
     }
         
@@ -82,7 +83,7 @@ export default function Header (props){
     return(
         <div>
         <header className="header">
-            <img className="logo-image" src={require("./image/sun-outline.png" )} alt="terra"></img>
+            <img className="logo-image" src={require("./image/sun-outline.png")} alt="terra"></img>
             <div>
             <form className="form-inline" onSubmit = {handleSubmit}>   
 
