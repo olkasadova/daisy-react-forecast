@@ -9,9 +9,19 @@ import FormattedDate from './FormattedDate';
 export default function Weather(props) {
         let formatted_icon="";
         formatted_icon=props.iconWeather;
-       // formatted_icon=props.icon;
+
+        function convertFareheit (){
+            //define what is curret metric?
+            let tempF = (props.data.temperature*9/5)+32;
+            console.log (tempF);
+        }
+
+        function convertCelsius (){
+            //define what is curret metric?
+            let tempC = (props.data.temperature-32)*5/9;
+            console.log (tempC);
+        }
      
-        console.log (formatted_icon);
         return(
         <div className="weather"> 
             <div className="row">
@@ -19,8 +29,8 @@ export default function Weather(props) {
                     <h2 className = "display-city">{props.data.name}</h2>
                     <img className="weather-image" src={require("./image/"+formatted_icon)} alt="cloudy"></img>
                     <span className="temp-value">{(Math.round(props.data.temperature))}</span>
-                    <span className="celsius">°C/ </span>
-                    <span className="farenheit">°F</span>
+                    <a className="celsius" onclick="convertCelsius()" >°C/ </a>
+                    <a className="farenheit" href="#" onclick="convertFareheit()">°F</a>
                     
                     <ul className = "weather-data">
                         <li>Pressure: <span className="pressure">{props.data.pressure}</span> p</li>
