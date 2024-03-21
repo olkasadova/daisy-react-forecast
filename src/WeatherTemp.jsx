@@ -1,6 +1,4 @@
 import React, {useState} from "react";
-import Weather from "./Weather.jsx";
-
 
 export default function WeatherTemp (props) {
     

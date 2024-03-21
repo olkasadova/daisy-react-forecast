@@ -1,10 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import "./Weather.css";
 import 'bootstrap/dist/css/bootstrap.css';
-import axios from "axios";
-import Header from "./Header";
 import FormattedDate from './FormattedDate';
-import WeatherTemp from './WeatherTemp';
+import WeatherTemp from "./WeatherTemp";
 
 
 export default function Weather(props) {

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './Header.css';
-import App from "./App.js";
 import Weather from "./Weather.jsx";
+import Forecast from "./Forecast.jsx";
 import axios from "axios";
 
 export default function Header (props){
@@ -75,7 +75,7 @@ export default function Header (props){
                 error = "city value is too long";
                 
             }
-            if (city == ""){
+            if (city === ""){
                 error = "Please enter a city...nothing to search";}
          message.innerHTML  = error;
     }
@@ -109,7 +109,7 @@ export default function Header (props){
       </header>
       
       <Weather data={weatherData} iconWeather={icon}/>
-      
+        <Forecast/>
       </div>
     )
     }
