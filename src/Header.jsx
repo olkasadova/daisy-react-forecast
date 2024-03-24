@@ -25,6 +25,7 @@ export default function Header (props){
     }
 
     function HandleAPIResponse (response) {
+        
         weatherData = {
             loaded: true,
             latitude: response.data.coord.lat,
@@ -41,6 +42,7 @@ export default function Header (props){
         setWeatherData(weatherData);       
         setLoaded(true);
         findIcon(icon);
+        console.log ("response main URL name: "+response.data.name)
         }
 
        
@@ -109,7 +111,7 @@ export default function Header (props){
       </header>
       
       <Weather data={weatherData} iconWeather={icon}/>
-      <Forecast data={weatherData} iconWeather={icon} key={weatherData}/>
+      <Forecast data={weatherData} iconWeather={icon} fstate="false"/>
       </div>
     )
     }
