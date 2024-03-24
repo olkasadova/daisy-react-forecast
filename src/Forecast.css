@@ -1,4 +1,19 @@
+.forecast{
+    text-align: center;
+}
+
 .forecastIcon{
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
+}
+.forecast-temperature{
+    font-size: 14px;
+}
+
+.forecast-time{
+    font-size: 12px;
+}
+.forecast-temperature-min{
+    opacity: 0.6;
+    margin-left: 5px;
 }

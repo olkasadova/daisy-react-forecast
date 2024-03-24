@@ -6,14 +6,15 @@ export default function WeatherTemp (props) {
         let [units, setUnits]=useState("celsius")
         let [temp, setTemp]=useState (props.celsius);
        
+       
         function convertFareheit (){
-            temp=((temp*9/5)+32);
+           temp=((temp*9/5)+32);
             setTemp(temp);
            setUnits("farenheit");
         }
         
         function convertCelsius (){
-            temp=((temp-32)*5/9);
+           temp=((temp-32)*5/9);
             setTemp(temp);
            setUnits("celsius");
         }

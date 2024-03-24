@@ -8,14 +8,14 @@ import WeatherTemp from "./WeatherTemp";
 export default function Weather(props) {
         let formatted_icon="";
         formatted_icon=props.iconWeather;
-
+        console.log (props.data.humidity)
         return(
         <div className="weather"> 
             <div className="row">
                 <div className="col-6">
-                    <h2 className = "display-city">{props.data.name}</h2>
+                    <div className = "display-city">{props.data.name}</div>
                     <img className="weather-image" src={require("./image/"+formatted_icon)} alt="cloudy"></img>                   
-                    <WeatherTemp celsius={props.data.temperature}/>
+                    <WeatherTemp celsius={props.data.temperature} key={props.data.temperature}/>
                     
                     <ul className = "weather-data">
                         <li>Pressure: <span className="pressure">{props.data.pressure}</span> p</li>
