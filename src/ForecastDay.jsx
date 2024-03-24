@@ -9,8 +9,7 @@ export default function ForecastDay(props)
      return(
         <div>
             <div className="forecast-time"> 
-             <div>{props.day.condition.icon}</div>
-
+             <FormattedDate info={new Date(props.day.time*1000)}/> 
             </div>                           
             <img className="forecastIcon" src={props.day.condition.icon_url} alt="terra"></img>
             <div className="forecast-temperature">

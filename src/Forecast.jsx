@@ -30,20 +30,16 @@ if (forecastloaded)
     return(
         <div className="forecast"> 
             <div className="row">
-                <div className ="col-2"> 
-                    <div className="forecast-time"> 
-                        <FormattedDate info={new Date(forecastDaily[0].time*1000)}/> 
-                    </div>                           
-                    <img className="forecastIcon" src={forecastDaily[0].condition.icon_url} alt="terra"></img>
-                    <div className="forecast-temperature">
-                        <span className="forecast-temperature-max">{Math.round(forecastDaily[0].temperature.maximum)}C</span>
-                        <span className="forecast-temperature-min">{Math.round(forecastDaily[0].temperature.minimum)}C</span>   
+                {forecastDaily.map(function(dailyForecast,index){
+                    if (index < 6){
+                    return (
+                        <div className ="col-2" key={index}> 
+                        <ForecastDay day={dailyForecast}/>
                     </div>
-                   
-                </div>
-                <div className ="col-2"> 
-                    <ForecastDay day={forecastDaily[0]}/>
-                </div>
+                    );
+                    }
+                })
+                }
             </div>
         
         </div>
