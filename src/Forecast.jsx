@@ -1,19 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import './Forecast.css';
 import axios from "axios";
-import FormattedDate from './FormattedDate';
 import ForecastDay from './ForecastDay';
 
 export default function Forecast(props){
-   
-    let formatted_icon= "sun-outline.png";    
+    
     let [forecastData, setForecastData] = useState({forecastloaded:false});
     let [forecastloaded, setForecastloaded] = useState(false);
     let [forecastDaily, setForecastDaily] = useState ({forecastloaded:false});
-    let n=0;
-    console.log(forecastloaded);
+
+        useEffect(()=>{
+            setForecastloaded(false);
+        }, [props.data]);
+
     function HandleAPIResponse (response){
-        console.log("response daily:"+ response.data.daily)
         forecastData= {
             setForecastloaded: true,
         }
@@ -22,8 +22,6 @@ export default function Forecast(props){
         setForecastData (forecastData);
         setForecastloaded(true);
     }
-  
-    console.log( "forecast data: "+ forecastDaily[0]);
 
 if (forecastloaded) 
 { 
@@ -41,11 +39,8 @@ if (forecastloaded)
                 })
                 }
             </div>
-        
         </div>
     )
-
-    
     }
    
 else {    

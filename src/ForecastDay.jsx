@@ -13,8 +13,8 @@ export default function ForecastDay(props)
             </div>                           
             <img className="forecastIcon" src={props.day.condition.icon_url} alt="terra"></img>
             <div className="forecast-temperature">
-                <span className="forecast-temperature-max">{Math.round(props.day.temperature.maximum)}C</span>
-                <span className="forecast-temperature-min">{Math.round(props.day.temperature.minimum)}C</span>   
+                <span className="forecast-temperature-max">{Math.round(props.day.temperature.maximum)}°</span>
+                <span className="forecast-temperature-min">{Math.round(props.day.temperature.minimum)}°</span>   
             </div>
         </div>
     )

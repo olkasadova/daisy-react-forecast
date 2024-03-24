@@ -111,7 +111,7 @@ export default function Header (props){
       </header>
       
       <Weather data={weatherData} iconWeather={icon}/>
-      <Forecast data={weatherData} iconWeather={icon} fstate="false"/>
+      <Forecast data={weatherData} iconWeather={icon}/>
       </div>
     )
     }
